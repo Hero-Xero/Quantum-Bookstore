@@ -34,6 +34,10 @@ public class Checkout {
 
         inventory.reduceStock(isbn, quantity);
 
+        if (book.isforSale() == false) {
+            throw new IllegalStateException("Not for sale.");
+        }
+
         if (book.isDigital()) {
             mailService.sendMail((EBook) book, email);
 

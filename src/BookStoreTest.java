@@ -1,6 +1,7 @@
 import Books.Book;
 import Books.EBook;
 import Books.PaperBook;
+import Books.ShowcaseBook;
 import Service.DummyMailService;
 import Service.DummyShippingService;
 import Service.MailService;
@@ -18,9 +19,19 @@ public class BookStoreTest {
 
         Book ebook = new EBook("pdf", "Effective Java", "123", 2018, 30);
         Book paperBook = new PaperBook("Clean Code", "111", 2008, 134);
+        Book showcaseBook = new ShowcaseBook("life", "435", 2003, 114);
 
+        inventory.addBook(showcaseBook, 1);
         inventory.addBook(ebook, 5);
         inventory.addBook(paperBook, 2);
+
+        try {
+            checkout.buyBook("435", 1, "user@example.com", "Nowhere");
+            throw new AssertionError("Expected error when buying a ShowcaseBook");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Quantum book store: Correctly blocked purchase of ShowcaseBook.");
+        }
+
 
         if (inventory.getItem("111").getQuantity() != 5) {
             throw new AssertionError("Expected quantity 5 for ebook before purchase");

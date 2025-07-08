@@ -22,4 +22,8 @@ An online book store simulation written in Java. Supports multiple book types, p
 ### Testing class
 ![test class run](assets/image2.png)
 
+![test class 2 run](assets/image3.png)
+
+
+
 
