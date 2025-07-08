@@ -1,3 +1,6 @@
+package Service;
+import Books.EBook;
+
 public interface MailService {
-    void sendMail(EBook ebook, String address);
+    void sendMail(EBook ebook, String email);
 }

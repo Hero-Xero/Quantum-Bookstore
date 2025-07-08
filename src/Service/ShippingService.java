@@ -1,3 +1,8 @@
+package Service;
+
+import Books.PaperBook;
+
 public interface ShippingService {
-    void ship(PaperBook paperBook, String address);
+    void shipBook(PaperBook paperBook, String address, int quantity);
+
 }
